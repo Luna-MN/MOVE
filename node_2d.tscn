@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://4nhec3uch78f"]
+
+[ext_resource type="Script" path="res://Player.cs" id="1_2ehuy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gllww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqhb6"]
+size = Vector2(0.999802, 0.998621)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yw68b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tl7uy"]
+radius = 0.5
+height = 2.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Floor" type="MeshInstance2D" parent="."]
+position = Vector2(622.375, 635.375)
+scale = Vector2(1261.25, 181.25)
+mesh = SubResource("BoxMesh_gllww")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/RigidBody2D"]
+position = Vector2(0.000891984, 0.000689745)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_gqhb6")
+
+[node name="Player" type="MeshInstance2D" parent="."]
+position = Vector2(229, 493)
+scale = Vector2(30, 30)
+mesh = SubResource("CapsuleMesh_yw68b")
+script = ExtResource("1_2ehuy")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Player"]
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
+shape = SubResource("CapsuleShape2D_tl7uy")
