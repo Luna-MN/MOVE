@@ -10,8 +10,8 @@ size = Vector2(0.999802, 0.998621)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yw68b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tl7uy"]
-radius = 0.5
-height = 2.0
+radius = 0.0177778
+height = 0.0688889
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,17 +24,17 @@ mesh = SubResource("BoxMesh_gllww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/RigidBody2D"]
 position = Vector2(0.000891984, 0.000689745)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gqhb6")
 
 [node name="Player" type="MeshInstance2D" parent="."]
 position = Vector2(229, 493)
 scale = Vector2(30, 30)
 mesh = SubResource("CapsuleMesh_yw68b")
-script = ExtResource("1_2ehuy")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Player"]
 lock_rotation = true
+script = ExtResource("1_2ehuy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
+scale = Vector2(30, 30)
 shape = SubResource("CapsuleShape2D_tl7uy")
