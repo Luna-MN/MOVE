@@ -17,11 +17,22 @@ public partial class Player : RigidBody2D
 	}
     public override void _Input(InputEvent @event) {
 		if (@event is InputEventKey keyEvent && keyEvent.Pressed) {
+			 
 			if (Input.IsKeyPressed(Key.A)) {
-				LinearVelocity = new Vector2(-speed, 0);
+				if (LinearVelocity.X <=  -200) {
+					LinearVelocity = new Vector2(-200, 0);
+				}
+				else {
+					LinearVelocity += new Vector2(-speed, 0);
+				}
 			}
 			else if (Input.IsKeyPressed(Key.D)) {
-				LinearVelocity = new Vector2(speed, 0);
+				if (LinearVelocity.X >=  200) {
+					LinearVelocity = new Vector2(200, 0);
+				}
+				else {
+					LinearVelocity -= new Vector2(-speed, 0);
+				}
 			}
 		}
 	}
