@@ -21,7 +21,7 @@ public partial class Player : RigidBody2D
 				LinearVelocity = new Vector2(-speed, 0);
 			}
 			else if (Input.IsKeyPressed(Key.D)) {
-				LinearVelocity = new Vector2(-speed, 0);
+				LinearVelocity = new Vector2(speed, 0);
 			}
 		}
 	}
