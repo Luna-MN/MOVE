@@ -3,6 +3,7 @@ using System;
 
 public partial class Player : RigidBody2D
 {
+	private bool Floor = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -13,7 +14,12 @@ public partial class Player : RigidBody2D
 
 	public override void _Process(Double delta)
 	{
-
+		if(LinearVelocity.Y == 0){
+			Floor = true;
+		}
+		else{
+			Floor = false;
+		}
 	}
     public override void _Input(InputEvent @event) {
 		if (@event is InputEventKey keyEvent && keyEvent.Pressed) {
@@ -33,6 +39,9 @@ public partial class Player : RigidBody2D
 				else {
 					LinearVelocity -= new Vector2(-speed, 0);
 				}
+			}
+			if(Input.IsKeyPressed(Key.Space) && Floor){
+				LinearVelocity += new Vector2(0, -500);
 			}
 		}
 	}
